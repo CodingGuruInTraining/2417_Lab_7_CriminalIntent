@@ -145,17 +145,17 @@ public class CrimeListFragment extends ListFragment {
         return v;
     }
 
-    private void updateUI() {
-        CrimeLab crimeLab = CrimeLab.get(getActivity());
-        ArrayList<Crime> crimes = crimeLab.getCrimes();
-
-        if (mAdapter == null) {
-            mAdapter = new CrimeAdapter(crimes);
-            mCrimeRecyclerView.setAdapter(mAdapter);
-        } else {
-            mAdapter.setCrimes(crimes);
-            mAdapter.notifyDataSetChanged();
-        }
-        updateSubtitle();
-    }
+//    private void updateUI() {
+//        CrimeLab crimeLab = CrimeLab.get(getActivity());
+//        ArrayList<Crime> crimes = crimeLab.getCrimes();
+//
+//        if (mAdapter == null) {
+//            mAdapter = new CrimeAdapter(crimes);
+//            mCrimeRecyclerView.setAdapter(mAdapter);
+//        } else {
+//            mAdapter.setCrimes(crimes);
+//            mAdapter.notifyDataSetChanged();
+//        }
+//        updateSubtitle();
+//    }
 }
