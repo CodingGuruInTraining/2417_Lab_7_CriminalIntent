@@ -60,6 +60,9 @@ public class CrimeListFragment extends ListFragment {
         public CrimeAdapter(ArrayList<Crime> crimes) {
             super(getActivity(), 0, crimes);
         }
+        public void setCrimes(ArrayList<Crime> crimes) {
+            mCrimes = crimes;
+        }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -140,5 +143,19 @@ public class CrimeListFragment extends ListFragment {
             }
         }
         return v;
+    }
+
+    private void updateUI() {
+        CrimeLab crimeLab = CrimeLab.get(getActivity());
+        ArrayList<Crime> crimes = crimeLab.getCrimes();
+
+        if (mAdapter == null) {
+            mAdapter = new CrimeAdapter(crimes);
+            mCrimeRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.setCrimes(crimes);
+            mAdapter.notifyDataSetChanged();
+        }
+        updateSubtitle();
     }
 }
